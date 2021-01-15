@@ -23,6 +23,34 @@ module.exports = {
         });
     },
     edit: function(req,res) {
-        res.render('detail');
+        db.Nota.findByPk(req.params.id)
+        .then(function(nota) {
+            res.render('detail', {nota: nota});
+        });
+    },
+    saveEdit: function(req,res) {
+        db.Nota.update({
+            title: req.body.title,
+            text: req.body.text
+        }, {
+            where: {
+                id: req.params.id
+            }
+        })
+        .then(function() {
+            res.redirect('/');
+        });
+    },
+    delete: function(req,res) {
+        db.Nota.update({
+            status: 0
+        }, {
+            where: {
+                id: req.params.id
+            }
+        })
+        .then(function() {
+            res.redirect('/');
+        });
     }
 }
