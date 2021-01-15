@@ -11,7 +11,4 @@ router.put('/editar/:id', mainController.saveEdit);
 
 router.delete('/eliminar/:id', mainController.delete);
 
-
-
-
 module.exports = router;

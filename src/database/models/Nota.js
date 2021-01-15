@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
             notNull: true
         },
         status: {
-            type: DataTypes.STRING(500),
+            type: DataTypes.INTEGER,
             notNull: true
         }
     }
